@@ -24,29 +24,24 @@ status:
     - ip: 34.89.136.84
 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-http-server
+  name: hello-world-http-server-deployment
   labels:
     app: hello-world-http-server
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: hello-world-http-server
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
         app: hello-world-http-server
-        tier: hello-world-http-server
     spec:
       containers:
       - name: hello-world-http-server
         image: obol89/hello-world-http-server:latest
-        imagePullPolicy: Always
         ports:
         - containerPort: 12333
-          name: hello-world-http-server
