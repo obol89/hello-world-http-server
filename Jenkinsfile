@@ -4,7 +4,7 @@ pipeline {
         PROJECT_ID = 'leonteq-recruitment'
         CLUSTER_NAME = 'standard-cluster-1'
         LOCATION = 'europe-west3-c'
-        CREDENTIALS_ID = '	leonteq-recruitment'
+        CREDENTIALS_ID = 'leonteq-recruitment'
     }
     stages {
         stage("Checkout code") {
