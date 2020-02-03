@@ -22,4 +22,15 @@ $ python3 server.py
 docker run --rm -it -p 12333:12333 obol89/hello-world-http-server
 ```
 
+### Jenkinsfile
+
+```
+Jenkinsfile is using for Pipeline steps in Jenkins.
+```
+
+### deployment.yaml
+```
+This file describes how container should be deployed in the GKE.
+```
+
 ### TEST CHANGES 5
