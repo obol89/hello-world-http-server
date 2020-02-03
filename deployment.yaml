@@ -1,0 +1,47 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+name: hello-world-http-server
+labels:
+  app: hello-world-http-server
+spec:
+strategy:
+  type: Recreate
+template:
+  metadata:
+    labels:
+      app: hello-world-http-server
+      tier: hello-world-http-server
+  spec:
+    containers:
+    - name: hello-world-http-server
+      image: obol89/hello-world-http-server:latest
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 12333
+        name: hello-world-http-server
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: hello-world-http-server
+  name: hello-world-http-server-service
+  namespace: default
+spec:
+  clusterIP: 10.0.5.89
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30122
+    port: 443
+    protocol: TCP
+    targetPort: 12333
+  selector:
+    run: hello-world-http-server
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.89.136.84
