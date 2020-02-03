@@ -32,6 +32,9 @@ metadata:
   labels:
     app: hello-world-http-server
 spec:
+  selector:
+    matchLabels:
+      app: hello-world-http-server
   strategy:
     type: Recreate
   template:
@@ -39,11 +42,11 @@ spec:
       labels:
         app: hello-world-http-server
         tier: hello-world-http-server
-  spec:
-    containers:
-    - name: hello-world-http-server
-      image: obol89/hello-world-http-server:latest
-      imagePullPolicy: Always
-      ports:
-      - containerPort: 12333
-        name: hello-world-http-server
+    spec:
+      containers:
+      - name: hello-world-http-server
+        image: obol89/hello-world-http-server:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 12333
+          name: hello-world-http-server
