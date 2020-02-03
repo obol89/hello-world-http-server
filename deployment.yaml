@@ -29,8 +29,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world-http-server
-labels:
-  app: hello-world-http-server
+  labels:
+    app: hello-world-http-server
 spec:
 strategy:
   type: Recreate
