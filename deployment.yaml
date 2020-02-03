@@ -32,13 +32,13 @@ metadata:
   labels:
     app: hello-world-http-server
 spec:
-strategy:
-  type: Recreate
-template:
-  metadata:
-    labels:
-      app: hello-world-http-server
-      tier: hello-world-http-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: hello-world-http-server
+        tier: hello-world-http-server
   spec:
     containers:
     - name: hello-world-http-server
